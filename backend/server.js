@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 dotenv.config();
-mongoose.connect(process.env.MONGODB_URL ||'mongodb://localhost/macdolands').then(()=>{
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/macdolands').then(()=>{
     console.log('connected')
 }).catch((error)=>{
     console.log(error)
