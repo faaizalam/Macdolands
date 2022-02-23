@@ -1,5 +1,6 @@
 import express from 'express'
 import  mongoose  from 'mongoose'
+import dotenv from 'dotenv'
 import path from 'path'
 import data from './Dats.js'
 import Pro from './modles.js'
@@ -9,7 +10,7 @@ import Order from './Ordermodle.js'
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-
+dotenv.config();
 mongoose.connect(process.env.MONGODB_URL ||'mongodb://localhost/macdolands').then(()=>{
     console.log('connected')
 }).catch((error)=>{
