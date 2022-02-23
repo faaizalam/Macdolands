@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.fooditems {
+  cursor: pointer;
+  margin: 15px;
+}
+.fooditems:hover {
+  transform: scale(1.5);
+}
+#ani {
+  cursor: pointer;
+}
+#ani:hover {
+  transform: scale(0.8);
+}
+.logo {
+  border-radius: 60px;
+  height: 60px;
+  width: 60px;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+.logos {
+  border-bottom: 2px solid rgb(158, 149, 149);
+}
+.alert {
+  width: 400px;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  width: 500px;
+  height: 500px;
+  margin: 4px;
+  color: red;
+}
+
+/*  */
+.food {
+  width: 80px;
+  height: 80px;
+  border-radius: 30px;
+}
+.imgpro {
+  width: 100px;
+  border: 1px solid #c1cf3c;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  text-decoration-color: blue;
+}
+.disp {
+  display: flex;
+}
+li {
+  margin: 20px;
+  text-decoration: none;
+  list-style: none;
+}
+.liclss {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
+.liclss > div {
+  width: 115px;
+  color: darkblue;
+}
+
+.imgpro:hover {
+  transform: scale(0.9);
+
+  cursor: pointer;
+}
+
+.root {
+  display: grid;
+  grid-template-areas: 'main';
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: gainsboro;
+  color: black;
+  /* width: 35%; */
+}
+.main {
+  grid-area: main;
+  display: flex;
+  background: gainsboro;
+  justify-content: center;
+}
+.mains {
+  background-color: red;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+}
+#root {
+  height: 100vh;
+}
+/* .main {
+  overflow: scroll;
+} */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: gray;
+}
+.summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  width: 700px;
+  margin: auto;
+  flex-direction: column;
+  height: auto;
+}
+
+.positive {
+  color: red;
+  /* font-size: 900px; */
+  background-color: black;
+  border-radius: 20px;
+}
+.negative {
+  color: red;
+  /* font-size: 900px; */
+  background-color: black;
+  border-radius: 20px;
+}
+
+Button {
+  color: goldenrod;
+}
+
+.MuiButton-label {
+  background-color: goldenrod;
+  width: 200px;
+  display: inherit;
+  align-items: inherit;
+  border: 2px solid;
+  justify-content: inherit;
+  border-radius: 5px;
+}
