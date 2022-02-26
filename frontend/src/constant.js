@@ -21,3 +21,11 @@ export const Pyamentmethod='Pyamentmethod'
 export const Order_create_req='Order_create_req'
 export const Order_create_succ='Order_create_succ'
 export const Order_create_fail='Order_create_fail'
+
+export const Ordeer_list_reqq ='Ordeer_list_reqq'
+export const Ordeer_list_succ ='Ordeer_list_succ'
+export const Ordeer_list_fail ='Ordeer_list_fail'
+
+export const Ordeer_q_reqq ='Ordeer_q_reqq'
+export const Ordeer_q_succ ='Ordeer_q_succ'
+export const Ordeer_q_fail ='Ordeer_q_fail'

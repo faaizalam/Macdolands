@@ -7,6 +7,10 @@ import Review from './Screen/Review';
 import Selectpayment from './Screen/Selectpayment';
 import Payment from './Screen/Payment';
 import { Compl } from './Screen/Compl';
+import Admin from './Screen/Admin';
+import { Que } from './Screen/Que';
+
+
 // import { Choose } from './Screen/Choose';
 
 function App() {
@@ -22,6 +26,8 @@ function App() {
    <Route path='/selectpayment/:id?' component={Selectpayment}></Route>
    <Route path='/payment' component={Payment}></Route>
    <Route path='/complete' component={Compl}></Route>
+   <Route path='/admins' component={Admin}></Route>
+   <Route path='/information' component={Que}></Route>
   
    </main>
       

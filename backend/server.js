@@ -1,7 +1,7 @@
 import express from 'express'
 import  mongoose  from 'mongoose'
 import dotenv from 'dotenv'
-import path from 'path'
+// import path from 'path'
 import data from './Dats.js'
 import Pro from './modles.js'
 import Order from './Ordermodle.js'
@@ -78,6 +78,7 @@ app.post('/postman/ordercreate',async(req,res)=>{
         orderItems:req.body.orderItems,
         paymenttype:req.body.paymenttype,
         ordertype:req.body.ordertype,
+        totalprice:req.body.totalprice,
        number:lastNum + 1
     
         
@@ -93,16 +94,60 @@ app.post('/postman/ordercreate',async(req,res)=>{
 
 })
 
+app.get('/postman/orders',(async(req,res)=>{
 
-const __dirname =path.resolve()
+     const orders = await Order.find({isDelivered:false,isCancelled:false,})
+     res.send(orders);
+    
+
+
+
+}))
+app.put('/postman/orders/:id',(async(req,res)=>{
+ const resp = await Order.findById(req.params.id);
+ if (resp) {
+ if (req.body.action==='ready') {
+     resp.isReady=true;
+     resp.inProgress=false;
+     
+ }else if(req.body.action==='delivered'){
+    resp.isDelivered=true;
+ } else if(req.body.action==='cancel'){
+     resp.isCancelled=true
+
+ }
+
+     await resp.save()
+     res.send({message:'done'})
+ } else{
+     res.status(404).send({message:'not found'})
+ }
 
 
 
 
-app.use(express.static(path.join(__dirname, '/frontend/build')));
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+}))
+
+
+
+app.get('/postman/orders/que',async(req,res)=>{
+    const responseprogress = await Order.find({inProgress:true,isCancelled:false},'number')
+    const responsedeliver = await Order.find({isReady:true,isDelivered:false},'number')
+    res.send({responseprogress,responsedeliver})
+
 })
+
+
+
+// const __dirname =path.resolve()
+
+
+
+
+// app.use(express.static(path.join(__dirname, '/frontend/build')));
+// app.get('*',(req,res)=>{
+//     res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+// })
 
 app.listen(process.env.PORT || 5000,(()=>{
     console.log('working on 5000')

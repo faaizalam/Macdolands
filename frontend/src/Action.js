@@ -1,6 +1,6 @@
 import Axios from 'axios'
 // import { useState } from 'react'
-import {  Cat_LIST_fail, Cat_List_Req, Cat_LIST_succ, Cat_setfail, Cat_setreq, Cat_setsucc, Order_ADD, Order_clear, Order_create_fail, Order_create_req, Order_create_succ, Order_Remove, Order_set, Pyamentmethod } from "./constant"
+import {  Cat_LIST_fail, Cat_List_Req, Cat_LIST_succ, Cat_setfail, Cat_setreq, Cat_setsucc, Ordeer_list_fail, Ordeer_list_reqq, Ordeer_list_succ, Ordeer_q_fail, Ordeer_q_reqq, Ordeer_q_succ, Order_ADD, Order_clear, Order_create_fail, Order_create_req, Order_create_succ, Order_Remove, Order_set, Pyamentmethod } from "./constant"
 
 export const setorder=(dispatch,ordertype)=>{
     dispatch({
@@ -125,5 +125,52 @@ export const createOrder =async(dispatch,order)=>{
         })
         
     }
+
+}
+
+export const listOrder=async(dispatch)=>{
+    dispatch({
+        type:Ordeer_list_reqq
+    })
+    try {
+        const {data}= await Axios.get('/postman/orders')
+        dispatch({
+            type:Ordeer_list_succ,
+            payload:data,
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:Ordeer_list_fail,
+            payload:error.message||error.data.message
+        })
+        
+    }
+
+}
+
+export const que = async(dispatch)=>{
+   dispatch({
+       type:Ordeer_q_reqq,
+
+   })
+   try {
+       const {data} = await Axios.get('/postman/orders/que')
+       dispatch({
+           type:Ordeer_q_succ,
+           payload:data
+        
+       })
+
+       
+   } catch (error) {
+
+    dispatch({
+        type:Ordeer_q_fail,
+        payload:error.message||error.data.message
+    })
+       
+   }
+
 
 }

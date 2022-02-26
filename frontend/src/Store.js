@@ -1,6 +1,6 @@
 
 import React, { createContext, useReducer } from "react";
-import { Cat_LIST_fail, Cat_List_Req, Cat_LIST_succ, Cat_setfail, Cat_setreq, Cat_setsucc, Order_ADD, Order_clear, Order_create_fail, Order_create_req, Order_create_succ, Order_Remove, Order_set, Pyamentmethod } from "./constant";
+import { Cat_LIST_fail, Cat_List_Req, Cat_LIST_succ, Cat_setfail, Cat_setreq, Cat_setsucc, Ordeer_list_fail, Ordeer_list_reqq, Ordeer_list_succ, Ordeer_q_fail, Ordeer_q_reqq, Ordeer_q_succ, Order_ADD, Order_clear, Order_create_fail, Order_create_req, Order_create_succ, Order_Remove, Order_set, Pyamentmethod } from "./constant";
 
 
 
@@ -24,6 +24,12 @@ const initial =({
         loading:true
     },
     orderCrate:{loading:true},
+    orderlistss:{
+        loading:true
+    },
+    quelist:{
+        loading:true
+    }
    
 
 })
@@ -164,7 +170,49 @@ function reducer(state,action) {
                         orderCrate:{loading:false,error:action.payload}
                     }
                
-                    
+                    case Ordeer_list_reqq:
+                        return{
+                            ...state,
+                            orderlistss:{
+                                loading:true
+                            }
+                        }
+                    case Ordeer_list_succ:
+                        return{
+                            ...state,
+                            orderlistss:{
+                                loading:false,
+                                orderl:action.payload
+                            }
+                        }
+                    case Ordeer_list_fail:
+                        return{
+                            ...state,
+                            orderlistss:{
+                                loading:false,
+                                orderl:action.payload
+                            }
+                        }
+
+                        case Ordeer_q_reqq:
+                            return{
+                                ...state,
+                                loading:true
+                            }
+                        case Ordeer_q_succ:
+                            return{
+                                ...state,
+                                quelist:{
+                                loading:false,
+                                ques:action.payload
+                                }
+                            }
+                        case Ordeer_q_fail:
+                            return{
+                                ...state,
+                                loading:false,
+                                error:action.payload
+                            }
     
         default:
             return state

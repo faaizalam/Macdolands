@@ -126,6 +126,7 @@ export default function Orderscreen(props) {
                     Add to order
 
                 </Button>
+                <Link to='/admins'>go to dashboard</Link>
                 
 
             </div>
